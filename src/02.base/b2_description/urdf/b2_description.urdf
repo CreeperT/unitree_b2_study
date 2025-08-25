@@ -19,6 +19,15 @@
         </geometry>
     </collision>
   </link>
+
+  <!-- 添加的base_footprint -->
+  <link name="base_footprint"/>
+  <joint name="joint_base" type="fixed">
+      <origin xyz="0.0 0.0 0.40" rpy="0.0 0.0 0.0"/>
+      <parent link="base_footprint"/>
+      <child link="base_link"/>
+  </joint>
+
   <link name="lidar_link">
     <inertial>
       <origin xyz="0.34218 0 0.17851" rpy="0 0 0" />

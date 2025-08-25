@@ -35,6 +35,7 @@ def generate_launch_description():
     b2_description_launch_path = os.path.join(b2_description_pkg, "launch", "display.launch.py")
     b2_driver_pkg = get_package_share_directory("b2_driver")
     rviz_cfg_path = os.path.join(b2_driver_pkg, "rviz", "display.rviz")
+    parms_path = os.path.join(b2_driver_pkg, "params", "driver.yaml")
     # rviz开关
     use_rviz = DeclareLaunchArgument(
         name="use_rviz",
@@ -43,7 +44,11 @@ def generate_launch_description():
 
     # 1.机器人模型可视化
     action_b2_description_launch = IncludeLaunchDescription(
-            launch_description_source=PythonLaunchDescriptionSource(launch_file_path=b2_description_launch_path))
+        launch_description_source=PythonLaunchDescriptionSource(
+            launch_file_path=b2_description_launch_path
+        ),
+        launch_arguments=[("use_joint_state_publisher", "true")] # 设置参数
+    )
     ## 包含rviz2
     action_rviz2 = Node(
         package="rviz2",
@@ -67,13 +72,17 @@ def generate_launch_description():
     # 3.里程计消息发布、广播里程计坐标变换、发布关节状态信息
     action_driver = Node(
         package="b2_driver",
-        executable="driver"
+        executable="driver",
+        parameters=[parms_path]
     )
 
     return LaunchDescription([
+
         use_rviz,
         action_b2_description_launch,
+        
         action_rviz2,
+        
         action_lidar_shine_upon,
         action_twist_bridge,
         action_driver
