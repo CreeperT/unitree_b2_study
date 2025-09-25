@@ -1,0 +1,158 @@
+[p2p_move_base_node-6] [ERROR] [1754032284.529943554] [local_planner.local_planner]: Perception 3D is not ok.
+[global_planner_node-5] [WARN] [1754032284.498549139] [perception_3d_global]: Map update loop missed its desired rate of 10.0000Hz... the loop actually took 0.1249 seconds
+[p2p_move_base_node-6] [WARN] [1754032281.330022333] [p2p_move_base]: Sensor data is out of date, we're not going to allow commanding of the base for safety
+
+[global_planner_node-6] [WARN] [1754036885.881658833] [perception_3d_global]: Map update loop missed its desired rate of 10.0000Hz... the loop actually took 0.1119 seconds
+[rviz2-10] [INFO] [1754036812.686704887] [rviz]: Message Filter dropping message: frame 'rslidar' at time 1754036802.602 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[p2p_move_base_node-7] [WARN] [1754036803.987015369] [perception_3d_local.map]: map has already received two msg.
+[static_transform_publisher-2] [WARN] [1754036799.859845306] []: Old-style arguments are deprecated; see --help for new-style arguments
+
+[p2p_move_base_node-7] [INFO] [1754036799.975496353] [perception_3d_local]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+
+[global_planner_node-6] [INFO] [1754036800.421358533] [perception_3d_global]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[p2p_move_base_node-7] [INFO] [1754036800.475597938] [perception_3d_local]: Timed out waiting for transform from base_link to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[global_planner_node-6] [INFO] [1754036801.921375232] [perception_3d_global]: Timed out waiting for transform from base_link to map to become available, tf error: Could not find a connection between 'map' and 'base_link' because they are not part of the same tree.Tf has two or more unconnected trees.
+[p2p_move_base_node-7] [INFO] [1754036801.975589420] [perception_3d_local]: Timed out waiting for transform from base_link to map to become available, tf error: Could not find a connection between 'map' and 'base_link' because they are not part of the same tree.Tf has two or more unconnected trees.
+[global_planner_node-6] [WARN] [1754036803.833629999] [perception_3d_global.map]: map receive new Map with size: 12467
+[global_planner_node-6] [WARN] [1754036803.837131153] [perception_3d_global.map]: map receive new Ground with size: 1743
+[p2p_move_base_node-7] [INFO] [1754036803.844203776] [local_planner.local_planner]: Start to parse cuboid.
+[p2p_move_base_node-7] [INFO] [1754036803.846630052] [local_planner.local_planner]: Cuboid vertex are loaded, start to connect edges.
+[p2p_move_base_node-7] [INFO] [1754036803.859798764] [global_plan_manager]: P2P global plan manager uses get_dwa_plan service to query global plan.
+[p2p_move_base_node-7] [INFO] [1754036803.861071982] [global_plan_manager]: global_plan_query_frequency: 10.00
+[global_planner_node-6] [WARN] [1754036803.865360165] [perception_3d_global.map]: map has already received two msg.
+
+
+
+
+[p2p_move_base_node-8] [ERROR] [1754038863.210357033] [local_planner.local_planner]: Perception 3D is not ok.
+[p2p_move_base_node-8] [WARN] [1754038863.210387097] [p2p_move_base]: Sensor data is out of date, we're not going to allow commanding of the base for safety
+
+
+
+
+
+
+
+
+
+
+
+[clicked2goal.py-9] [INFO] [1754551840.065392608] [clicked2p2p]: Got goal at: 5.45, -3.79, -0.86
+[clicked2goal.py-9] [INFO] [1754551840.068753087] [clicked2p2p]: Sending Goal
+[clicked2goal.py-9] [INFO] [1754551840.070760849] [clicked2p2p]: Goal sent. Waiting response
+[clicked2goal.py-9] [INFO] [1754551840.071829657] [clicked2p2p]: Goal accepted :)
+[p2p_move_base_node-8] [INFO] [1754551840.074473217] [global_plan_manager]: Global plan manager is resumed
+[p2p_move_base_node-8] [INFO] [1754551840.176090946] [global_plan_manager]: Goal accepted by: get_dwa_plan, waiting for result
+[global_planner_node-7] [INFO] [1754551840.188649389] [dynamic_window_aware_global_planner]: Received new goal at: 5.45, -3.79, -0.86
+[global_planner_node-7] [WARN] [1754551840.189571841] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551840.190024963] [global_planner]: Selected start: 6.69, -1.44, -0.65, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551840.322405637] [global_planner]: Path found from: 593 to 415
+[global_planner_node-7] [WARN] [1754551840.373368304] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551840.373469108] [global_planner]: Selected start: 6.68, -1.45, -0.64, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[p2p_move_base_node-8] [INFO] [1754551840.374689434] [local_planner.local_planner]: Recieve new global plan.
+[global_planner_node-7] [INFO] [1754551840.376873650] [global_planner]: Path found from: 593 to 415
+[p2p_move_base_node-8] [INFO] [1754551840.378410737] [global_plan_manager]: Goal accepted by: get_dwa_plan, waiting for result
+[global_planner_node-7] [WARN] [1754551840.461017484] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551840.461083354] [global_planner]: Selected start: 6.68, -1.45, -0.64, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551840.465265789] [global_planner]: Path found from: 593 to 415
+[global_planner_node-7] [WARN] [1754551840.473310827] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551840.473384448] [global_planner]: Selected start: 6.68, -1.45, -0.65, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551840.478495094] [global_planner]: Path found from: 593 to 415
+[p2p_move_base_node-8] [INFO] [1754551840.480818334] [global_plan_manager]: Goal accepted by: get_dwa_plan, waiting for result
+[global_planner_node-7] [WARN] [1754551840.529496668] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551840.529559547] [global_planner]: Selected start: 6.67, -1.45, -0.65, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551840.533045290] [global_planner]: Path found from: 593 to 415
+[global_planner_node-7] [WARN] [1754551840.573297200] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551840.573353079] [global_planner]: Selected start: 6.67, -1.45, -0.65, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551840.575171748] [global_planner]: Path found from: 593 to 415
+[p2p_move_base_node-8] [INFO] [1754551840.577843307] [global_plan_manager]: Goal accepted by: get_dwa_plan, waiting for result
+[sport_ctrl_node-10] [INFO] [1754551840.614129360] [sport_ctrl_node]: Received cmd_vel: linear.x=0.03, linear.y=0.00, angular.z=-0.25
+[sport_ctrl_node-10] [INFO] [1754551840.614223556] [sport_ctrl_node]: Published request with api_id=1008, parameters={"x": 0.033710, "y": 0.000000, "z": -0.252508}
+[sport_ctrl_node-10] [INFO] [1754551840.696385006] [sport_ctrl_node]: Received cmd_vel: linear.x=0.02, linear.y=0.00, angular.z=0.25
+[sport_ctrl_node-10] [INFO] [1754551840.696468820] [sport_ctrl_node]: Published request with api_id=1008, parameters={"x": 0.016985, "y": 0.000000, "z": 0.254463}
+[global_planner_node-7] [WARN] [1754551840.715275259] [perception_3d_global]: Map update loop missed its desired rate of 10.0000Hz... the loop actually took 0.1328 seconds
+[global_planner_node-7] [WARN] [1754551840.715381557] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551840.715426891] [global_planner]: Selected start: 6.67, -1.45, -0.65, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551840.717106983] [global_planner]: Path found from: 593 to 415
+[global_planner_node-7] [WARN] [1754551840.763603175] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551840.763669959] [global_planner]: Selected start: 6.67, -1.45, -0.65, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551840.769666265] [global_planner]: Path found from: 593 to 415
+[global_planner_node-7] [WARN] [1754551840.770729747] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551840.770775652] [global_planner]: Selected start: 6.67, -1.45, -0.65, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551840.779022211] [global_planner]: Path found from: 593 to 415
+[sport_ctrl_node-10] [INFO] [1754551840.783991928] [sport_ctrl_node]: Received cmd_vel: linear.x=0.02, linear.y=0.00, angular.z=-0.22
+[sport_ctrl_node-10] [INFO] [1754551840.784088623] [sport_ctrl_node]: Published request with api_id=1008, parameters={"x": 0.019623, "y": 0.000000, "z": -0.218420}
+[global_planner_node-7] [WARN] [1754551840.844492548] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551840.844561904] [global_planner]: Selected start: 6.67, -1.45, -0.65, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551840.848569440] [global_planner]: Path found from: 593 to 415
+[global_planner_node-7] [WARN] [1754551840.849341388] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551840.849388926] [global_planner]: Selected start: 6.67, -1.45, -0.65, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [WARN] [1754551840.850669268] [perception_3d_global]: Map update loop missed its desired rate of 10.0000Hz... the loop actually took 0.1351 seconds
+[global_planner_node-7] [INFO] [1754551840.852780590] [global_planner]: Path found from: 593 to 415
+[p2p_move_base_node-8] [INFO] [1754551840.853462141] [global_plan_manager]: Goal accepted by: get_dwa_plan, waiting for result
+[global_planner_node-7] [WARN] [1754551840.876008748] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551840.876072264] [global_planner]: Selected start: 6.67, -1.45, -0.65, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551840.881301247] [global_planner]: Path found from: 593 to 415
+[p2p_move_base_node-8] [INFO] [1754551840.881671550] [global_plan_manager]: Goal accepted by: get_dwa_plan, waiting for result
+[sport_ctrl_node-10] [INFO] [1754551840.892201995] [sport_ctrl_node]: Received cmd_vel: linear.x=-0.00, linear.y=0.00, angular.z=0.24
+[sport_ctrl_node-10] [INFO] [1754551840.892284770] [sport_ctrl_node]: Published request with api_id=1008, parameters={"x": -0.001374, "y": 0.000000, "z": 0.237864}
+[global_planner_node-7] [WARN] [1754551840.936828206] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551840.936884199] [global_planner]: Selected start: 6.68, -1.46, -0.66, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551840.939662739] [global_planner]: Path found from: 593 to 415
+[sport_ctrl_node-10] [INFO] [1754551840.984044256] [sport_ctrl_node]: Received cmd_vel: linear.x=0.04, linear.y=0.00, angular.z=-0.25
+[sport_ctrl_node-10] [INFO] [1754551840.984133772] [sport_ctrl_node]: Published request with api_id=1008, parameters={"x": 0.038062, "y": 0.000000, "z": -0.250823}
+[global_planner_node-7] [WARN] [1754551840.996198168] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551840.996263567] [global_planner]: Selected start: 6.68, -1.46, -0.66, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551840.999947078] [global_planner]: Path found from: 593 to 415
+[p2p_move_base_node-8] [INFO] [1754551841.001877248] [global_plan_manager]: Goal accepted by: get_dwa_plan, waiting for result
+[global_planner_node-7] [WARN] [1754551841.044277642] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551841.044346057] [global_planner]: Selected start: 6.68, -1.47, -0.66, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551841.048949632] [global_planner]: Path found from: 593 to 415
+[global_planner_node-7] [WARN] [1754551841.073279359] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551841.073340142] [global_planner]: Selected start: 6.67, -1.47, -0.66, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551841.076460219] [global_planner]: Path found from: 593 to 415
+[p2p_move_base_node-8] [INFO] [1754551841.077015046] [global_plan_manager]: Goal accepted by: get_dwa_plan, waiting for result
+[sport_ctrl_node-10] [INFO] [1754551841.085106658] [sport_ctrl_node]: Received cmd_vel: linear.x=0.02, linear.y=0.00, angular.z=-0.22
+[sport_ctrl_node-10] [INFO] [1754551841.085206020] [sport_ctrl_node]: Published request with api_id=1008, parameters={"x": 0.020986, "y": 0.000000, "z": -0.222505}
+[global_planner_node-7] [WARN] [1754551841.163140111] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551841.163212208] [global_planner]: Selected start: 6.67, -1.47, -0.66, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551841.167712810] [global_planner]: Path found from: 593 to 415
+[global_planner_node-7] [WARN] [1754551841.173284587] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551841.173345444] [global_planner]: Selected start: 6.67, -1.47, -0.66, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551841.178560003] [global_planner]: Path found from: 593 to 415
+[p2p_move_base_node-8] [INFO] [1754551841.182427492] [global_plan_manager]: Goal accepted by: get_dwa_plan, waiting for result
+[sport_ctrl_node-10] [INFO] [1754551841.183390482] [sport_ctrl_node]: Received cmd_vel: linear.x=-0.00, linear.y=0.00, angular.z=-0.24
+[sport_ctrl_node-10] [INFO] [1754551841.183473632] [sport_ctrl_node]: Published request with api_id=1008, parameters={"x": -0.000601, "y": 0.000000, "z": -0.237864}
+[global_planner_node-7] [WARN] [1754551841.252061197] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551841.252126582] [global_planner]: Selected start: 6.67, -1.47, -0.65, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551841.253604492] [global_planner]: Path found from: 593 to 415
+[global_planner_node-7] [WARN] [1754551841.273365952] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551841.273438077] [global_planner]: Selected start: 6.67, -1.47, -0.65, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551841.277586633] [global_planner]: Path found from: 593 to 415
+[p2p_move_base_node-8] [INFO] [1754551841.278384964] [global_plan_manager]: Goal accepted by: get_dwa_plan, waiting for result
+[sport_ctrl_node-10] [INFO] [1754551841.298955668] [sport_ctrl_node]: Received cmd_vel: linear.x=0.01, linear.y=0.00, angular.z=-0.25
+[sport_ctrl_node-10] [INFO] [1754551841.299043425] [sport_ctrl_node]: Published request with api_id=1008, parameters={"x": 0.011221, "y": 0.000000, "z": -0.247896}
+[global_planner_node-7] [WARN] [1754551841.352147598] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551841.352231041] [global_planner]: Selected start: 6.67, -1.47, -0.65, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551841.362656869] [global_planner]: Path found from: 593 to 415
+[sport_ctrl_node-10] [INFO] [1754551841.385387915] [sport_ctrl_node]: Received cmd_vel: linear.x=0.01, linear.y=0.00, angular.z=-0.22
+[sport_ctrl_node-10] [INFO] [1754551841.385476836] [sport_ctrl_node]: Published request with api_id=1008, parameters={"x": 0.005353, "y": 0.000000, "z": -0.218244}
+[global_planner_node-7] [WARN] [1754551841.405589467] [perception_3d_global]: Map update loop missed its desired rate of 10.0000Hz... the loop actually took 0.1231 seconds
+[global_planner_node-7] [WARN] [1754551841.405867152] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551841.405905526] [global_planner]: Selected start: 6.68, -1.46, -0.65, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551841.407266441] [global_planner]: Path found from: 593 to 415
+[p2p_move_base_node-8] [INFO] [1754551841.407988393] [global_plan_manager]: Goal accepted by: get_dwa_plan, waiting for result
+[global_planner_node-7] [WARN] [1754551841.428073726] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551841.428135043] [global_planner]: Selected start: 6.68, -1.46, -0.65, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551841.430960168] [global_planner]: Path found from: 593 to 415
+[global_planner_node-7] [WARN] [1754551841.474823151] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551841.474882213] [global_planner]: Selected start: 6.68, -1.46, -0.65, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551841.478893342] [global_planner]: Path found from: 593 to 415
+[p2p_move_base_node-8] [INFO] [1754551841.479844523] [global_plan_manager]: Goal accepted by: get_dwa_plan, waiting for result
+[sport_ctrl_node-10] [INFO] [1754551841.482051871] [sport_ctrl_node]: Received cmd_vel: linear.x=0.01, linear.y=0.00, angular.z=-0.21
+[sport_ctrl_node-10] [INFO] [1754551841.482124509] [sport_ctrl_node]: Published request with api_id=1008, parameters={"x": 0.005922, "y": 0.000000, "z": -0.206702}
+[global_planner_node-7] [WARN] [1754551841.523781252] [global_planner]: Selected goal: 5.45, -3.79, -0.86, Nearest-> id: 415, x: 5.43, y: -3.72, z: -0.86
+[global_planner_node-7] [WARN] [1754551841.523880918] [global_planner]: Selected start: 6.68, -1.45, -0.66, Nearest-> id: 593, x: 6.59, y: -1.41, z: -0.86
+[global_planner_node-7] [INFO] [1754551841.528282695] [global_planner]: Path found from: 593 to 415
+[p2p_move_base_node-8] [ERROR] [1754551841.574587428] [local_planner.local_planner]: Perception 3D is not ok.
+[p2p_move_base_node-8] [WARN] [1754551841.574631214] [p2p_move_base]: Sensor data is out of date, we're not going to allow commanding of the base for safety

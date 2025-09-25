@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(b2_helloworld)
+project(pointcloud)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -8,20 +8,33 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(unitree_api REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(pcl_conversions REQUIRED)
+find_package(pcl_msgs REQUIRED)
 
-add_executable(HelloWorld src/helloworld.cpp)
-target_include_directories(HelloWorld PUBLIC
+add_executable(pointcloud2_to_pcd src/pointcloud2_to_pcd.cpp)
+add_executable(pcd_intensity_filter src/pcd_intensity_filter.cpp)
+target_include_directories(pointcloud2_to_pcd PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_features(HelloWorld PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+target_compile_features(pointcloud2_to_pcd PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 ament_target_dependencies(
-  HelloWorld
+  pointcloud2_to_pcd
   "rclcpp"
-  "unitree_api"
+  "sensor_msgs"
+  "pcl_conversions"
+  "pcl_msgs"
 )
 
-install(TARGETS HelloWorld
+ament_target_dependencies(
+  pcd_intensity_filter
+  "rclcpp"
+  "sensor_msgs"
+  "pcl_conversions"
+  "pcl_msgs"
+)
+
+install(TARGETS pointcloud2_to_pcd pcd_intensity_filter
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)

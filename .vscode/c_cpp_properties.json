@@ -6,7 +6,9 @@
                 "${workspaceFolder}/**",
                 "/opt/ros/humble/include/**",
                 "~/unitree_ros2/cyclonedds_ws/install/unitree_api/include/**",
-                "~/unitree_ros2/cyclonedds_ws/install/unitree_go/include/**"
+                "~/unitree_ros2/cyclonedds_ws/install/unitree_go/include/**",
+                "/usr/local/include/pcl-1.15",
+                "/usr/include/eigen3"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

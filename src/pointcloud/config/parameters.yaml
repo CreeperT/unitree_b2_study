@@ -1,0 +1,19 @@
+pointcloud2_to_pcd:
+  ros__parameters:
+    # 点云话题名称
+    pointcloud_topic: "/rslidar_points"
+    # 保存间隔时间(秒)
+    save_interval: 5
+    # 输出目录 (请确保此目录存在且有写权限)
+    output_directory: "/home/unitree/unitree_B2_creeper_ws/src/02.base/pointcloud2_to_pcd/pcd/"
+
+pcd_intensity_filter:
+  ros__parameters:
+    # 输入文件
+    input_pcd_file: 
+    # 输出目录
+    output_directory: "/home/unitree/unitree_B2_creeper_ws/src/02.base/pointcloud2_to_pcd/pcd_filtered/"
+    # 强度阈值
+    intensity_threshold: 50.0
+    # 是否发布话题
+    if_publish: false

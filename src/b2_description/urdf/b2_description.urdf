@@ -837,4 +837,59 @@
     <child link="r_oc_link" />
     <axis xyz="0 0 0" />
   </joint>
+
+  <gazebo reference="base_link">
+      <material>Gazebo/Black</material>
+      <mu1>0.2</mu1>  <!-- 摩擦系数 -->
+      <mu2>0.2</mu2>
+  </gazebo>
+
+  <gazebo reference="FL_hip">
+      <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="FL_thigh">
+      <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="FL_calf">
+      <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="FR_hip">
+      <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="FR_thigh">
+      <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="FR_calf">
+      <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="RL_hip">
+      <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="RL_thigh">
+      <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="RL_calf">
+      <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="RR_hip">
+      <material>Gazebo/Green</material>
+  </gazebo>
+
+  <gazebo reference="RR_thigh">
+      <material>Gazebo/Green</material>
+  </gazebo>
+
+  <gazebo reference="RR_calf">
+      <material>Gazebo/Green</material>
+  </gazebo>
+  
 </robot>
