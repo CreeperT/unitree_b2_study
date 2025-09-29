@@ -18,29 +18,9 @@ class PcdIntensityFilter : public Node
 {
 private:
     double intensity_threshold_;
-    Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr cloud_pub_;
-    Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr cloud_pub_raw_;
-    TimerBase::SharedPtr timer_;
     pcl::PointCloud<pcl::PointXYZI>::Ptr input_cloud_;
     pcl::PointCloud<pcl::PointXYZI>::Ptr filtered_cloud_;
-
-    void timer_callback()
-    {
-        sensor_msgs::msg::PointCloud2 output_msg;
-        filtered_cloud_.reset(new pcl::PointCloud<pcl::PointXYZI>);
-        pcl::toROSMsg(*filtered_cloud_, output_msg);
-        output_msg.header.stamp = this->now();
-        output_msg.header.frame_id = "map";
-        cloud_pub_->publish(output_msg);
-
-        sensor_msgs::msg::PointCloud2 raw_msg;
-        input_cloud_.reset(new pcl::PointCloud<pcl::PointXYZI>);
-        pcl::toROSMsg(*input_cloud_, raw_msg);
-        output_msg.header.stamp = this->now();
-        output_msg.header.frame_id = "map";
-        cloud_pub_raw_->publish(raw_msg);
-    }
-
+    
 public:
     explicit PcdIntensityFilter(const string &name) : Node(name)
     {
@@ -58,10 +38,6 @@ public:
         this->declare_parameter<double>("intensity_threshold", 50.0f);
         intensity_threshold_ = this->get_parameter("intensity_threshold").as_double();
         RCLCPP_INFO(this->get_logger(), "强度阈值: %f", intensity_threshold_);
-
-        this->declare_parameter<bool>("if_publish", false);
-        bool if_publish = this->get_parameter("if_publish").as_bool();
-        RCLCPP_INFO(this->get_logger(), "是否发布话题: %s", if_publish ? "是" : "否");
 
         // 读取PCD文件
         if(input_file.empty() || output_dir.empty())
@@ -110,14 +86,6 @@ public:
             RCLCPP_ERROR(this->get_logger(), "保存时发生错误 '%s': %s", file_name.c_str(), e.what());
         }
 
-        // 如果有需要，发布
-        if(if_publish)
-        {
-            cloud_pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/filtered_pointcloud", 10);
-            cloud_pub_raw_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/raw_pointcloud", 10);
-            timer_ = this->create_wall_timer(
-                chrono::seconds(1), bind(&PcdIntensityFilter::timer_callback));
-        }
     }
 };
 

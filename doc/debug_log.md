@@ -22,12 +22,25 @@
 
 
 # dddmr_lego_loam debug
-## 问题1：lego_loam_fa节点显示ERROR: Could not get robot_center to , check your odom topic and baselink_frame
+## 问题1：~~lego_loam_fa节点显示ERROR: Could not get robot_center to , check your odom topic and baselink_frame~~ pcl::Voxel滤波器问题和Eigen对象内存未对齐问题
 **原因：**  
 通过在`featureAssociation.cpp`中添加调试信息，发现在`runFeatureAssociation`函数执行`_input_channel.receive(projection)`语句时发生了堵塞。  
 再细查，发现`imageProjection`中的`_output_channel.send( std::move(out) )`函数也没有正确执行。  
 继续调试，发现堵塞发生在`imageProjection`的`groundRemoval`函数的`dsf_patched_ground_.filter(*patched_ground_)`语句。退出码为`-11`，是**段错误**。  
-根据[一篇博客](https://blog.csdn.net/weixin_42325783/article/details/134369931)，分析可能是pcl库和eigen库共同引起的bug。
+~~参考[一篇博客](https://blog.csdn.net/weixin_42325783/article/details/134369931)，分析可能是pcl库和eigen库共同引起的bug。~~  
+`FeatureAssociation::extractFeatures`函数中，Voxel滤波器downSizeFilter对地面点云滤波后得到空点云。  
+`pcl::transformPointsCloud`函数引发的段错误，通过gdb查看堆栈发现错误发生在`_mm_load_pd_`指令处。参考[一篇知乎文章](https://zhuanlan.zhihu.com/p/510724305)可以得知这是内存未对齐引发的。
 
 **解决：**  
-修改了滤波函数，在滤波部分跑通了。但仍然发生段错误。
+~~修改了滤波函数，在滤波部分跑通了。但仍然发生段错误。~~   
+将Voxel滤波器换成了ApproximateVoxel滤波器。不需要再根据那篇博客的方法了。  
+修改了`mapOptiminaztion.h`的代码。
+```cpp
+// 修改前
+Eigen::Affine3d trans_m2ci_af3_, trans_c2s_af3_, trans_s2c_af3_, trans_c2b_af3_;
+
+// 修改后
+EIGEN_MAKE_ALIGNED_OPERATOR_NEW // 添加这个宏
+alignas(32) Eigen::Affine3d trans_m2ci_af3_, trans_c2s_af3_, trans_s2c_af3_, trans_c2b_af3_; // 确保Eigen对象以32位正确对齐
+```
+顺利解决，可以运行了。

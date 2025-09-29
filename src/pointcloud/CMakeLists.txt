@@ -14,6 +14,7 @@ find_package(pcl_msgs REQUIRED)
 
 add_executable(pointcloud2_to_pcd src/pointcloud2_to_pcd.cpp)
 add_executable(pcd_intensity_filter src/pcd_intensity_filter.cpp)
+add_executable(pointcloud_pub src/pointcloud_pub.cpp)
 target_include_directories(pointcloud2_to_pcd PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
@@ -34,7 +35,15 @@ ament_target_dependencies(
   "pcl_msgs"
 )
 
-install(TARGETS pointcloud2_to_pcd pcd_intensity_filter
+ament_target_dependencies(
+  pointcloud_pub
+  "rclcpp"
+  "sensor_msgs"
+  "pcl_conversions"
+  "pcl_msgs"
+)
+
+install(TARGETS pointcloud2_to_pcd pcd_intensity_filter pointcloud_pub
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)

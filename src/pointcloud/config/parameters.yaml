@@ -15,5 +15,12 @@ pcd_intensity_filter:
     output_directory: "/home/unitree/unitree_B2_creeper_ws/src/02.base/pointcloud2_to_pcd/pcd_filtered/"
     # 强度阈值
     intensity_threshold: 50.0
-    # 是否发布话题
-    if_publish: false
+    
+pointcloud_pub:
+  ros__parameters:
+    # 原始pcd文件
+    raw_cloud_pcd_file:
+    # 滤波后pcd文件
+    filtered_cloud_pcd_file:
+    # 发布间隔时间(单位：秒)
+    interval_time:
