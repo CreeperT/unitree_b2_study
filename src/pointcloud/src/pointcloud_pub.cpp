@@ -26,14 +26,12 @@ private:
     void timer_callback()
     {
         sensor_msgs::msg::PointCloud2 raw_msg;
-        raw_cloud_.reset(new pcl::PointCloud<pcl::PointXYZI>);
         pcl::toROSMsg(*raw_cloud_, raw_msg);
         raw_msg.header.stamp = this->now();
         raw_msg.header.frame_id = "map";
         cloud_pub_raw_->publish(raw_msg);
         
         sensor_msgs::msg::PointCloud2 filtered_msg;
-        filtered_cloud_.reset(new pcl::PointCloud<pcl::PointXYZI>);
         pcl::toROSMsg(*filtered_cloud_, filtered_msg);
         filtered_msg.header.stamp = this->now();
         filtered_msg.header.frame_id = "map";
