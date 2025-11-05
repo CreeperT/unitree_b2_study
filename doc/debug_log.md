@@ -10,11 +10,33 @@
 
 ## 问题3：无论通信是否成功，均会触发错误处理函数DeviceInternalCommunicationErrorProcess
 **原因：** wait_for函数阻塞当前线程，与客户端的异步处理逻辑有冲突，且判断条件为
->`wait_for(std::chrono::seconds(1)) != std::future_status::ready`
-
+```cpp
+wait_for(std::chrono::seconds(1)) != std::future_status::ready
+```
 可能因为其他原因误判  
 **解决：** 使用了一个定时器来处理通信超时等待错误，同时将判断条件改为
->`wait_for(std::chrono::seconds(1)) == std::future_status::timeout`
+```cpp
+wait_for(std::chrono::seconds(1)) == std::future_status::timeout
+```
+为了使用`wait_for`函数，首先要创建一个future共享指针加入lambda回调函数，然后在外面重载
+```cpp
+auto shared_future_ptr = std::make_shared<rclcpp::Client<robot_msgs::srv::ChangeCtrlModeCmd>::SharedFuture>();
+// 在lambda回调函数中
+*shared_future_ptr = future;
+// lambda回调函数结束后重载
+auto future = ChangeCtrlModeCmd_client->async_send_request(request, res_callback);
+*shared_future_ptr = future.future;
+// 定时器调用
+auto timer = this->create_wall_timer(std::chrono::milliseconds(500),
+            [this, json_fun_copy, shared_future_ptr](){
+                if (shared_future_ptr->valid() && 
+                    shared_future_ptr->wait_for(std::chrono::seconds(1)) == std::future_status::timeout)
+                {
+                    DeviceInternalCommunicationErrorProcess(json_fun_copy);
+                    return;
+                }
+            }); 
+```
 
 ## 问题4：有很多cJSON对象没有判断是否为空
 
@@ -44,3 +66,38 @@ EIGEN_MAKE_ALIGNED_OPERATOR_NEW // 添加这个宏
 alignas(32) Eigen::Affine3d trans_m2ci_af3_, trans_c2s_af3_, trans_s2c_af3_, trans_c2b_af3_; // 确保Eigen对象以32位正确对齐
 ```
 顺利解决，可以运行了。
+## 问题2：pose_graph_editor节点运行出错
+**原因：**  
+通过gdb工具发现`pose_graph_editor`模块在运行`pcl::io::loadPCDFile`函数时发生段错误。  
+**解决：**  
+使用更安全的加载方式，即先以通用格式读取，再转换到具体点类型。  
+具体如下：  
+```cpp
+// 新建一个中间点云
+pcl::PCLPointCloud2 cloud2;
+// 以通用格式读取
+if (pcl::io::loadPCDFile(edges_path, cloud2) == -1)
+{
+    RCLCPP_ERROR(this->get_logger(), "Failed to read poses PCD file: %s", poses_path.c_str());
+}
+// 再通过中间点云转换到目标点云
+pcd_edges_.reset(new pcl::PointCloud<PointXYZ>());
+pcl::fromPCLPointCloud2(cloud2, *pcd_edges_);
+// 对之后的读取部分同理替换
+```
+
+# hdl_localization_ros2
+## 问题1：报错terminate called after throwing an instance of 'std::runtime_error' what():  can't compare times with different time sources
+参考该[issue](https://github.com/pyc5714/hdl-localization-ROS2/issues/4)，在`pose_estimator.hpp`头文件中进行修改
+
+
+## 问题2：找不到odom到base_link的tf转换
+**原因：**   
+1. 机器狗自己并不发布tf变换，需要手动发布。  
+2. 发布的odom到base_link的tf变换时间戳不同步，比记录时间晚了89秒。  
+
+**解决：**  
+1. 通过获取`/dog_odom`话题的消息，手动发布了odom到base_link的tf变换。
+2. 原来发布的odom到base_link的tf变换中，时间戳使用了`/dog_odom`话题的时间戳。实际上，`/dog_odom`话题由机器狗的另一台底层控制电脑发布，其时间戳与开发电脑不一致，晚了89秒。于是将该tf变换中的时间戳改为使用系统时间`this->now()`，成功解决。
+
+## 问题3：map到odom的tf变换有问题

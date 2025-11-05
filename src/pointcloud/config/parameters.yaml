@@ -5,22 +5,33 @@ pointcloud2_to_pcd:
     # 保存间隔时间(秒)
     save_interval: 5
     # 输出目录 (请确保此目录存在且有写权限)
-    output_directory: "/home/unitree/unitree_B2_creeper_ws/src/02.base/pointcloud2_to_pcd/pcd/"
+    output_directory: "/home/creepert/unitree_B2_creeper_ws/src/pointcloud/pcd/"
 
 pcd_intensity_filter:
   ros__parameters:
     # 输入文件
-    input_pcd_file: 
+    input_pcd_file: "/home/creepert/unitree_B2_creeper_ws/src/pointcloud/pcd/"
     # 输出目录
-    output_directory: "/home/unitree/unitree_B2_creeper_ws/src/02.base/pointcloud2_to_pcd/pcd_filtered/"
+    output_directory: "/home/creepert/unitree_B2_creeper_ws/src/pointcloud/pcd_filtered/"
     # 强度阈值
     intensity_threshold: 50.0
     
 pointcloud_pub:
   ros__parameters:
     # 原始pcd文件
-    raw_cloud_pcd_file:
+    raw_cloud_pcd_file: "/home/creepert/DAM-395-map/DAM-395-Original-merge-lite-1cm-ascii_200.pcd"
     # 滤波后pcd文件
-    filtered_cloud_pcd_file:
+    filtered_cloud_pcd_file: "/home/creepert/DAM-395-map/DAM-395-Original-merge-lite-1cm-ascii_254.pcd"
     # 发布间隔时间(单位：秒)
-    interval_time:
+    interval_time: 5
+
+pointcloud_filter:
+  ros__parameters:
+    # 订阅原始点云话题
+    sub_topic: "/rslidar_points"
+    # 发布滤波点云话题
+    pub_topic: "/filtered_points"
+    # 强度阈值
+    intensity_threshold: 240
+    # 是否使用模拟时间
+    use_sim_time: true

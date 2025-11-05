@@ -1,0 +1,4 @@
+odom_tf_pub:
+  ros__parameters:
+    # 是否使用模拟时间
+    use_sim_time: true
